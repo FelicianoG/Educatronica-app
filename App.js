@@ -5,6 +5,7 @@ import Constants from "expo-constants";
 import { styled } from "styled-components/native";
 import RegresarIcon from "./assets/icons/Regresar.svg";
 import LupaIcon from "./assets/icons/Lupa.svg";
+import {List} from "./components/List";
 
 const STATUSBAR_HEIGHT = Constants.statusBarHeight;
 
@@ -14,12 +15,13 @@ const STATUSBAR_HEIGHT = Constants.statusBarHeight;
 
 export default function App() {
   const [toggle, setToggle] = useState(true);
+  const lista = [{titulo: "Práctica 1"},{titulo: "Práctica 2"}];
   return (
     <View style={styles.container}>
       <View id="header" style={styles.header}></View>
       <StyledView>
         <VolumeHeaderShadow />
-        <VolumeHeader style={{ elevation: 90, shadowColor: "black", shadowOffset: { width: 0, height: 30 }, shadowOpacity: 1, shadowRadius: 4 }}>
+        <VolumeHeader /* style={{ elevation: 90, shadowColor: "black", shadowOffset: { width: 0, height: 30 }, shadowOpacity: 1, shadowRadius: 4 }}*/>
           <VolumeHeaderContainer>
             <IconHolder>
               <RegresarIcon width={120} height={40} />
@@ -41,12 +43,19 @@ export default function App() {
             </ToggleOpt>
           </Toggler>
         </VolumeHeader>
+      {lista.map((elemento)=>{return <List title = {elemento.titulo}></List>})}
       </StyledView>
       <StatusBar style="auto" />
-      <View id="footer" style={styles.footer}></View>
+      <Footer></Footer>
     </View>
   );
 }
+
+const Footer = styled.View`
+  background-color: blue;
+  height: 80px;
+  width: 100%;
+`;
 
 const Toggler = styled.View`
   display: flex;
@@ -75,7 +84,8 @@ const ToggleOpt = styled.TouchableOpacity`
 `;
 const ToggleOptText = styled.Text`
   color: white;
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 700;
 `;
 const StyledView = styled.View`
   background-color: aliceblue;
@@ -89,7 +99,7 @@ const IconHolder = styled.View`
 `;
 const TitleContainer = styled.View`
   position: relative;
-  top: 20px;
+  top: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,19 +133,22 @@ const VolumeHeaderContainer = styled.View`
 `;
 const H1 = styled.Text`
   color: white;
-  font-size: 50px;
+  font-size: 60px;
+  font-weight: 700;
   text-align: center;
+  margin-top: -5px;
 `;
 const H2 = styled.Text`
   color: white;
-  font-size: 25px;
+  font-size: 34px;
+  font-weight: 700;
   text-align: center;
 `;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#F3F3F3",
     justifyContent: "space-between",
   },
   header: {
@@ -143,9 +156,5 @@ const styles = StyleSheet.create({
     height: STATUSBAR_HEIGHT,
     width: "100%",
   },
-  footer: {
-    backgroundColor: "blue",
-    height: 80,
-    width: "100%",
-  },
+
 });
