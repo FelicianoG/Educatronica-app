@@ -5,6 +5,7 @@ import Constants from "expo-constants";
 import { styled } from "styled-components/native";
 import RegresarIcon from "./assets/icons/Regresar.svg";
 import LupaIcon from "./assets/icons/Lupa.svg";
+import { List } from "./components/List";
 
 const STATUSBAR_HEIGHT = Constants.statusBarHeight;
 
@@ -14,6 +15,7 @@ const STATUSBAR_HEIGHT = Constants.statusBarHeight;
 
 export default function App() {
   const [toggle, setToggle] = useState(true);
+  const lista = [{titulo:"Práctica 1 - LED"},{titulo:"Práctica 2 - LED"},{titulo:"Práctica 3 - LED"}]
   return (
     <View style={styles.container}>
       <View id="header" style={styles.header}></View>
@@ -41,9 +43,13 @@ export default function App() {
             </ToggleOpt>
           </Toggler>
         </VolumeHeader>
+        
+        
+        {lista.map((elemento)=>{return <List title = {elemento.titulo}></List>})}
+        
       </StyledView>
       <StatusBar style="auto" />
-      <View id="footer" style={styles.footer}></View>
+      <Footer></Footer>
     </View>
   );
 }
@@ -130,6 +136,12 @@ const H2 = styled.Text`
   color: white;
   font-size: 25px;
   text-align: center;
+`;
+
+const Footer = styled.View`
+  background-color: blue;
+  height: 80px;
+  width: "100%";
 `;
 
 const styles = StyleSheet.create({
