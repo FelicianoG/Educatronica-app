@@ -1,8 +1,8 @@
 import { styled } from "styled-components/native";
 import LEDIcon from "../../../assets/icons/LED.svg";
 
-import { Dimensions } from "react-native";
-const windowWidth = Dimensions.get("window").width;
+// import { Dimensions } from "react-native";
+// const windowWidth = Dimensions.get("window").width;
 // const windowHeight = Dimensions.get("window").height;
 
 export function ListItem({ title }) {
@@ -17,7 +17,6 @@ export function ListItem({ title }) {
         <TextContainer>
           <TituloP>{title}</TituloP>
           <SubtituloP>Ver práctica</SubtituloP>
-          <SubtituloP>{windowWidth}</SubtituloP>
         </TextContainer>
       </Maincontainer>
     </Listcont>
@@ -29,17 +28,15 @@ const Listcont = styled.View`
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: antiquewhite;
 `;
 const TextContainer = styled.View`
   align-items: center;
   justify-content: center;
-  background-color: blueviolet;
 `;
 
 const CircleContainer = styled.View`
   box-sizing: border-box;
-  background-color: aqua;
+
   padding-bottom: 25%;
   width: 25%;
   justify-content: center;
@@ -61,7 +58,6 @@ const Circulo = styled.View`
 `;
 
 const Maincontainer = styled.View`
-  background-color: aquamarine;
   padding-left: 20px;
   height: 142.5px;
   width: 652.5px;
@@ -76,11 +72,9 @@ const TituloP = styled.Text`
   font-weight: 700;
   color: #797979;
   font-size: 42px;
-  background-color: bisque;
 `;
 
 const SubtituloP = styled.Text`
   color: #a5a5a5;
   font-size: 42px;
-  background-color: blue;
 `;
