@@ -1,10 +1,6 @@
 import { styled } from "styled-components/native";
 import LEDIcon from "../../../assets/icons/LED.svg";
 
-// import { Dimensions } from "react-native";
-// const windowWidth = Dimensions.get("window").width;
-// const windowHeight = Dimensions.get("window").height;
-
 export function ListItem({ title }) {
   return (
     <Listcont>

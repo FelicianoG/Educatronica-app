@@ -5,7 +5,17 @@ import { Header } from "./components/Header";
 import { ListItem } from "./components/ListItem";
 
 const STATUSBAR_HEIGHT = Constants.statusBarHeight;
-const lista = [{ titulo: "Práctica 1" }, { titulo: "Práctica 2" }, { titulo: "Práctica 3" }, { titulo: "Práctica 4" }];
+const lista = [
+  { titulo: "Práctica 1" },
+  { titulo: "Práctica 2" },
+  { titulo: "Práctica 3" },
+  { titulo: "Práctica 4" },
+  { titulo: "Práctica 4" },
+  { titulo: "Práctica 4" },
+  { titulo: "Práctica 4" },
+  { titulo: "Práctica 4" },
+  { titulo: "Práctica 4" },
+];
 export function Volume() {
   return (
     <MainContainer>
