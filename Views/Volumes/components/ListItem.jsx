@@ -1,25 +1,21 @@
 import { styled } from "styled-components/native";
-import LEDIcon from "../../../assets/icons/LED.svg";
+import { IconCircle } from "../components/IconCircle";
 
 export function ListItem({ title }) {
   return (
-    <Listcont>
-      <Maincontainer>
-        <CircleContainer>
-          <Circulo>
-            <LEDIcon width={90} height={90} />
-          </Circulo>
-        </CircleContainer>
+    <ListCont>
+      <MainContainer>
+        <IconCircle></IconCircle>
         <TextContainer>
-          <TituloP>{title}</TituloP>
-          <SubtituloP>Ver práctica</SubtituloP>
+          <H1>{title}</H1>
+          <H2>Ver práctica</H2>
         </TextContainer>
-      </Maincontainer>
-    </Listcont>
+      </MainContainer>
+    </ListCont>
   );
 }
 
-const Listcont = styled.View`
+const ListCont = styled.View`
   margin-top: 50px;
   width: 100%;
   align-items: center;
@@ -53,10 +49,14 @@ const Circulo = styled.View`
   bottom: 10px;
 `;
 
-const Maincontainer = styled.View`
+const MainContainer = styled.View`
+  box-sizing: border-box;
+  padding: 4px;
   padding-left: 20px;
-  height: 142.5px;
-  width: 652.5px;
+  background-color: #ffffff;
+  width: 70%;
+  max-width: 650px;
+  min-width: 600px;
   flex-direction: row;
   justify-content: start;
   align-items: center;
@@ -64,13 +64,13 @@ const Maincontainer = styled.View`
   border-radius: 33px;
 `;
 
-const TituloP = styled.Text`
+const H1 = styled.Text`
   font-weight: 700;
   color: #797979;
   font-size: 42px;
 `;
 
-const SubtituloP = styled.Text`
+const H2 = styled.Text`
   color: #a5a5a5;
   font-size: 42px;
 `;

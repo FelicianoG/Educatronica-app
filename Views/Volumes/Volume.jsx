@@ -3,19 +3,10 @@ import Constants from "expo-constants";
 import { styled } from "styled-components/native";
 import { Header } from "./components/Header";
 import { ListItem } from "./components/ListItem";
+import { Module } from "./components/Module";
 
 const STATUSBAR_HEIGHT = Constants.statusBarHeight;
-const lista = [
-  { titulo: "Práctica 1" },
-  { titulo: "Práctica 2" },
-  { titulo: "Práctica 3" },
-  { titulo: "Práctica 4" },
-  { titulo: "Práctica 4" },
-  { titulo: "Práctica 4" },
-  { titulo: "Práctica 4" },
-  { titulo: "Práctica 4" },
-  { titulo: "Práctica 4" },
-];
+const listExample = [{ title: "Práctica 1" }, { title: "Práctica 2" }, { title: "Práctica 3" }, { title: "Práctica 4" }, { title: "Práctica 4" }];
 export function Volume() {
   return (
     <MainContainer>
@@ -23,9 +14,16 @@ export function Volume() {
       <StyledView>
         <Header></Header>
         <List>
-          {lista.map((elemento) => {
-            return <ListItem title={elemento.titulo}></ListItem>;
-          })}
+          <Module title={"MÓDULO 1"} month={"Octubre"}>
+            {listExample.map((element, i) => {
+              return <ListItem key={i} title={element.title}></ListItem>;
+            })}
+          </Module>
+          <Module title={"MÓDULO 2"} month={"Noviembre"}>
+            {listExample.map((element, i) => {
+              return <ListItem key={i} title={element.title}></ListItem>;
+            })}
+          </Module>
         </List>
       </StyledView>
       <StatusBar style="auto" />
@@ -34,14 +32,13 @@ export function Volume() {
 }
 
 const StyledView = styled.View`
-  background-color: aliceblue;
+  background-color: #f4f4f4;
   width: 100%;
   flex: 1;
 `;
 
 const MainContainer = styled.View`
   flex: 1;
-  background-color: #f3f3f3;
   justify-content: space-between;
 `;
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Constants from "expo-constants";
 import { styled } from "styled-components/native";
-import RegresarIcon from "../../../assets/icons/Regresar.svg";
-import LupaIcon from "../../../assets/icons/Lupa.svg";
+import GoBack from "../../../assets/icons/goback.svg";
+import SearchIcon from "../../../assets/icons/search.svg";
 import { useWindowDimensions } from "react-native";
 
 const STATUSBAR_HEIGHT = Constants.statusBarHeight;
@@ -39,7 +39,7 @@ export function Header() {
     flex-direction: row;
     background-color: #a0e522;
     border-radius: 80px;
-    width: ${rem * 28};
+    width: ${rem * 28}px;
     position: relative;
     top: 20px;
   `;
@@ -122,14 +122,14 @@ export function Header() {
       <VolumeHeader size={"30"}>
         <VolumeHeaderContainer>
           <IconHolder>
-            <RegresarIcon width={120} height={40} />
+            <GoBack width={120} height={40} />
           </IconHolder>
           <TitleContainer>
             <H2>1 GRADO</H2>
             <H1>VOLUMEN 1</H1>
           </TitleContainer>
           <IconHolder>
-            <LupaIcon width={120} height={40} />
+            <SearchIcon width={120} height={40} />
           </IconHolder>
         </VolumeHeaderContainer>
         <Toggler>
