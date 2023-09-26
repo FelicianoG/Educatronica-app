@@ -4,10 +4,11 @@ import { styled } from "styled-components/native";
 import GoBack from "../../../assets/icons/goback.svg";
 import SearchIcon from "../../../assets/icons/search.svg";
 import { useWindowDimensions } from "react-native";
+import { palette } from "../../../theme/palette";
 
 const STATUSBAR_HEIGHT = Constants.statusBarHeight;
 
-export function Header() {
+export function Header({ color, navigation }) {
   const [toggle, setToggle] = useState(true);
   const { width } = useWindowDimensions();
 
@@ -33,36 +34,41 @@ export function Header() {
   }
 
   const Toggler = styled.View`
+    background-color: red;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    background-color: #a0e522;
+    background-color: ${palette[color].light};
     border-radius: 80px;
-    width: ${rem * 28}px;
+    width: ${rem * 32}px;
     position: relative;
     top: 20px;
+    padding: ${rem * 0.2}px 0;
   `;
   const ToggleOpt = styled.TouchableOpacity`
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     background-color: ${(props) => {
-      return props.active ? "#86c218" : "#00000000";
+      return props.active ? palette[color].medium : "#00000000";
     }};
     border-radius: 80px;
     height: 80%;
     margin: 12px;
+    padding-left: ${rem * 1}px;
+    padding-right: ${rem * 1}px;
     flex: 1;
   `;
   const ToggleOptText = styled.Text`
     color: white;
-    font-size: ${1.6 * rem}px;
+    font-size: ${1.2 * rem}px;
     font-weight: 700;
   `;
 
-  const IconHolder = styled.View`
+  const IconHolder = styled.TouchableOpacity`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +81,7 @@ export function Header() {
     align-items: center;
   `;
   const VolumeHeader = styled.View`
-    background-color: #86c218;
+    background-color: ${palette[color].medium};
     width: 100%;
     margin: auto;
     height: ${14 * vrem}px;
@@ -122,7 +128,13 @@ export function Header() {
       <VolumeHeader size={"30"}>
         <VolumeHeaderContainer>
           <IconHolder>
-            <GoBack width={120} height={40} />
+            <GoBack
+              onPress={() => {
+                navigation.goBack();
+              }}
+              width={120}
+              height={40}
+            />
           </IconHolder>
           <TitleContainer>
             <H2>1 GRADO</H2>
@@ -134,10 +146,13 @@ export function Header() {
         </VolumeHeaderContainer>
         <Toggler>
           <ToggleOpt onPress={() => setToggle(true)} active={toggle}>
-            <ToggleOptText>Prácticas</ToggleOptText>
+            <ToggleOptText>MODULO 1</ToggleOptText>
           </ToggleOpt>
           <ToggleOpt onPress={() => setToggle(false)} active={!toggle}>
-            <ToggleOptText>Proyectos</ToggleOptText>
+            <ToggleOptText>MODULO 2</ToggleOptText>
+          </ToggleOpt>
+          <ToggleOpt onPress={() => setToggle(false)} active={!toggle}>
+            <ToggleOptText>MODULO 3</ToggleOptText>
           </ToggleOpt>
         </Toggler>
       </VolumeHeader>

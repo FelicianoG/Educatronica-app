@@ -1,11 +1,11 @@
 import { styled } from "styled-components/native";
 import { IconCircle } from "../components/IconCircle";
 
-export function ListItem({ title }) {
+export function ListItem({ title, color }) {
   return (
     <ListCont>
       <MainContainer>
-        <IconCircle></IconCircle>
+        <IconCircle color={color}></IconCircle>
         <TextContainer>
           <H1>{title}</H1>
           <H2>Ver práctica</H2>
@@ -26,34 +26,33 @@ const TextContainer = styled.View`
   justify-content: center;
 `;
 
-const CircleContainer = styled.View`
-  box-sizing: border-box;
+// const CircleContainer = styled.View`
+//   box-sizing: border-box;
 
-  padding-bottom: 25%;
-  width: 25%;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`;
+//   padding-bottom: 25%;
+//   width: 25%;
+//   justify-content: center;
+//   align-items: center;
+//   position: relative;
+// `;
 
-const Circulo = styled.View`
-  border-radius: 220px;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(-30deg);
-  background-color: #86c218;
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  top: 10px;
-  bottom: 10px;
-`;
+// const Circulo = styled.View`
+//   border-radius: 220px;
+//   justify-content: center;
+//   align-items: center;
+//   transform: rotate(-30deg);
+//   background-color: #86c218;
+//   position: absolute;
+//   left: 10px;
+//   right: 10px;
+//   top: 10px;
+//   bottom: 10px;
+// `;
 
 const MainContainer = styled.View`
   box-sizing: border-box;
   padding: 4px;
   padding-left: 20px;
-  background-color: #ffffff;
   width: 70%;
   max-width: 650px;
   min-width: 600px;

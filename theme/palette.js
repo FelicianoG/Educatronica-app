@@ -1,4 +1,4 @@
-const palete = {
+export const palette = {
   neutral: { dark: "#838383", medium: "#C3C3C3", light: "#E3E3E3" },
   yellow: { dark: "#887C11", medium: "#C3CC0C", light: "#E2EB2C" },
   orange: { dark: "#975416", medium: "#F5870A", light: "#F89F36" },

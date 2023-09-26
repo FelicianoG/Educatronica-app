@@ -4,24 +4,25 @@ import { styled } from "styled-components/native";
 import { Header } from "./components/Header";
 import { ListItem } from "./components/ListItem";
 import { Module } from "./components/Module";
+import { palette } from "../../theme/palette";
 
 const STATUSBAR_HEIGHT = Constants.statusBarHeight;
 const listExample = [{ title: "Práctica 1" }, { title: "Práctica 2" }, { title: "Práctica 3" }, { title: "Práctica 4" }, { title: "Práctica 4" }];
-export function Volume() {
+export function Volume({ color, navigation }) {
   return (
     <MainContainer>
-      <Statusbar></Statusbar>
+      <Statusbar style={{ backgroundColor: palette[color].medium }}></Statusbar>
       <StyledView>
-        <Header></Header>
+        <Header navigation={navigation} color={color}></Header>
         <List>
-          <Module title={"MÓDULO 1"} month={"Octubre"}>
+          <Module color={color} title={"MÓDULO 1"} month={"Octubre"}>
             {listExample.map((element, i) => {
-              return <ListItem key={i} title={element.title}></ListItem>;
+              return <ListItem color={color} key={i} title={element.title}></ListItem>;
             })}
           </Module>
-          <Module title={"MÓDULO 2"} month={"Noviembre"}>
+          <Module color={color} title={"MÓDULO 2"} month={"Noviembre"}>
             {listExample.map((element, i) => {
-              return <ListItem key={i} title={element.title}></ListItem>;
+              return <ListItem color={color} key={i} title={element.title}></ListItem>;
             })}
           </Module>
         </List>

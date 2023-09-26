@@ -1,11 +1,12 @@
 import { styled } from "styled-components/native";
+import { palette } from "../../../theme/palette";
 
-export function Module({ title, month, children }) {
+export function Module({ title, month, children, color }) {
   return (
     <MainContainer>
       <TextContainer>
-        <Title>{title}</Title>
-        <Month>{month}</Month>
+        <Title style={{ color: palette[color].medium }}>{title}</Title>
+        <Month style={{ color: palette[color].dark }}>{month}</Month>
       </TextContainer>
       {children}
     </MainContainer>

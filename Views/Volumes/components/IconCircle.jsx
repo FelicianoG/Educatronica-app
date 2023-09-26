@@ -1,7 +1,8 @@
 import { styled } from "styled-components/native";
 import LedIcon from "../../../assets/icons/led.svg";
+import { palette } from "../../../theme/palette";
 
-export function IconCircle({ icon, size = "md" }) {
+export function IconCircle({ icon, size = "md", color }) {
   const sizes = {
     lg: 120,
     md: 90,
@@ -10,7 +11,7 @@ export function IconCircle({ icon, size = "md" }) {
   //todo Get icon from prop
   return (
     <CircleContainer>
-      <Circle>
+      <Circle style={{ backgroundColor: palette[color].medium }}>
         <LedIcon width={sizes[size]} height={sizes[size]} />
       </Circle>
     </CircleContainer>
